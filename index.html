@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dollar$$ — Currency & Crypto Converter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+    </div>
+
+    <main class="app">
+
+        <header class="header">
+
+            <div class="logo">
+                <div class="logo-symbol">$</div>
+
+                <div>
+                    <h1>Dollar<span>$$</span></h1>
+                    <p id="subtitle">Currency & Crypto Converter</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+
+                <div class="live-status">
+                    <span class="live-dot"></span>
+                    <span id="liveText">Live rates</span>
+                </div>
+
+                <select id="language">
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="uz">🇺🇿 UZ</option>
+                    <option value="ru">🇷🇺 RU</option>
+                </select>
+
+            </div>
+
+        </header>
+
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                <span>↗</span>
+                <span id="heroBadge">Live exchange rates</span>
+            </div>
+
+            <h2 id="heroTitle">
+                Convert money <span>smarter.</span>
+            </h2>
+
+            <p id="heroDescription">
+                Convert international currencies and popular cryptocurrencies
+                with a clean and simple interface.
+            </p>
+
+        </section>
+
+
+        <section class="converter-card">
+
+            <div class="converter-top">
+
+                <div>
+                    <p class="section-label" id="converterLabel">
+                        CURRENCY CONVERTER
+                    </p>
+
+                    <h3 id="converterTitle">
+                        Convert your money
+                    </h3>
+                </div>
+
+                <div class="type-tabs">
+
+                    <button
+                        class="type-button active"
+                        data-type="fiat"
+                        id="fiatButton"
+                    >
+                        Fiat
+                    </button>
+
+                    <button
+                        class="type-button"
+                        data-type="crypto"
+                        id="cryptoButton"
+                    >
+                        Crypto
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="amount-section">
+
+                <label for="amount" id="amountLabel">
+                    Amount
+                </label>
+
+                <div class="amount-input">
+
+                    <span id="amountSymbol">$</span>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        value="100"
+                        min="0"
+                        step="any"
+                        placeholder="Enter amount"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="currency-row">
+
+                <div class="currency-box">
+
+                    <label id="fromLabel">
+                        From
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <div
+                            class="currency-icon"
+                            id="fromIcon"
+                        >
+                            🇺🇸
+                        </div>
+
+                        <select id="from-currency"></select>
+
+                    </div>
+
+                </div>
+
+
+
+                <button
+                    class="swap-button"
+                    id="swapButton"
+                    title="Swap currencies"
+                >
+                    ⇄
+                </button>
+
+
+                <div class="currency-box">
+
+                    <label id="toLabel">
+                        To
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <div
+                            class="currency-icon"
+                            id="toIcon"
+                        >
+                            🇺🇿
+                        </div>
+
+                        <select id="to-currency"></select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="convert-button"
+                id="convertButton"
+            >
+                <span id="convertText">
+                    Convert
+                </span>
+
+                <span>→</span>
+            </button>
+
+
+            <div
+                id="loader"
+                class="loader-container hidden"
+            >
+                <div class="loader"></div>
+                <p id="loadingText">Getting latest rates...</p>
+            </div>
+
+
+            <div
+                id="error"
+                class="error hidden"
+            ></div>
+
+
+            <div
+                id="resultCard"
+                class="result-card hidden"
+            >
+
+                <p
+                    class="result-label"
+                    id="resultLabel"
+                >
+                    CONVERTED AMOUNT
+                </p>
+
+                <div class="result-main">
+
+                    <div>
+
+                        <p
+                            class="original-amount"
+                            id="originalAmount"
+                        >
+                        </p>
+
+                        <h2 id="convertedAmount">
+                        </h2>
+
+                    </div>
+
+                    <div class="result-icon">
+                        ↗
+                    </div>
+
+                </div>
+
+
+                <div class="exchange-info">
+
+                    <div>
+                        <span id="rateLabel">
+                            Exchange rate
+                        </span>
+
+                        <strong id="exchangeRate">
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span id="updatedLabel">
+                            Updated
+                        </span>
+
+                        <strong id="updatedTime">
+                            Just now
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                <div>
+                    <h4 id="featureOneTitle">
+                        Fast conversion
+                    </h4>
+
+                    <p id="featureOneText">
+                        Convert currencies in seconds.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ₿
+                </div>
+
+                <div>
+                    <h4 id="featureTwoTitle">
+                        Crypto support
+                    </h4>
+
+                    <p id="featureTwoText">
+                        Bitcoin, Ethereum, Solana and more.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ◎
+                </div>
+
+                <div>
+                    <h4 id="featureThreeTitle">
+                        Live rates
+                    </h4>
+
+                    <p id="featureThreeText">
+                        Rates retrieved from online APIs.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>
+                Dollar$$ • Currency & Crypto Converter
+            </p>
+        </footer>
+
+    </main>
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>
